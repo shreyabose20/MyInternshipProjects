@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Shreya Bose</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        .cv-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            height: 80vh; 
+            overflow: auto; 
+        }
+
+        .cv h2 {
+            margin-top: 0;
+        }
+
+        .cv p {
+            margin: 0;
+        }
+
+        
+        .scroll-to-top-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="cv-container">
+<div style="margin:20px;text-align:center;">
+        <h2>Shreya Bose</h2>
+        <p>Software Engineer | Student | Developer</p>
+       
+        
+        
+        <h2>Professional Summary</h2>
+        <p>I am presently a student and recently completed my 4th semester.I have made few personal and group projects on Java, C language, Web Development Technologies and Python in college. I am a person who is eager to learn with a commitment to delivering high-quality results. I enjoy working on challenging projects that allow me to apply my skills and creativity.</p>
+
+        <h2>Education</h2>
+        <p><strong>B.Tech in Computer Science and Engineering</strong><br>New Horizon College of Engineering<br> 2021-present<br>Current Cgpa upto 3rd semester is 9.48</p>
+         <p><strong>XII Class </strong><br> Burnpur Riverside School,Asansol <br> Graduated with 91.2 percent in 2021</p>
+        <p><strong>X Class </strong><br>Loreto Convent Asansol<br> Graduated with 90.3 percent in 2019</p>
+
+        <h2>Personal Projects</h2>
+        <p><strong>C Language Projects</strong><br>FCFS CPU Scheduling<br>Customer Billing Services</p>
+         <p><strong>Java Project</strong><br>Calculator</p>
+         <p><strong>Web Design Technology Project</strong><br>Movie Ticket Booking Platform</br>
+
+        <h2>Skills</h2>
+        <p>HTML, CSS, JavaScript, Java, C Language, Python,Adaptability,Multitasking, Problem Solving, Teamwork, Creative Thinking.</p>
+</div>
+   
+
+        <p>&copy; 2023 Shreya Bose</p>
+    </div>
+
+    
+    <button class="scroll-to-top-button" onclick="scrollToTop()">Scroll to Top</button>
+
+    <script>
+        // JavaScript function to scroll to the top of the page
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Show/hide scroll-to-top button based on scroll position
+        window.addEventListener('scroll', function () {
+            const scrollButton = document.querySelector('.scroll-to-top-button');
+            if (window.scrollY > 100) {
+                scrollButton.style.display = 'block';
+            } else {
+                scrollButton.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

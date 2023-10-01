@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Shreya Bose</title>
+    <style>
+        
+        body {
+            font-family: 'Arial', sans-serif; 
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0; 
+        }
+
+        
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="portfolio">
+<div style="margin:40px;text-align:center;">
+        <h2>My Portfolio</h2>
+        <div class="project">
+            <img src="fcfs_scheduling.jpg" alt="FCFS CPU Scheduling">
+            <h3>C Language Project</h3><br>
+            <p><strong>Description of FCFS CPU Scheduling Project:</strong><br> A CPU scheduling algorithm ensures efficient utilization of the CPU by determining which process gets to use it for execution and which ones are queued or removed. The primary objective is to prevent CPU idle time, ensuring there's always at least one ready process in the queue. The simplest algorithm, First-Come, First-Served (FCFS), orders processes based on their arrival time. In contrast, priority-based scheduling assigns processes priorities, allowing higher-priority tasks to preempt lower-priority ones, ensuring the CPU serves the most critical tasks promptly.<br><br>
+<strong>Implementation:</strong><br>
+<ol>
+<li>Input the processes along with their burst time (bt).</li>
+<li>Find waiting time (wt) for all processes.</li>
+<li>As first process that comes need not to wait so the waiting time for process 1 will be 0 i.e. wt[0]=0.</li>
+<li>Find waiting time for all other processes i.e. for process i ->                                     
+   wt[i] = bt[i-1] + wt[i-1] .</li>
+<li>Find turnaround time= waiting time + burst time for all processes.</li>
+<li>Find average time = total waiting time/ No. of processes .</li>
+<li>Similarly, find average turnaround time= total turnaround time/ No. of processes.</li></ol>
+</p>
+        </div><br><br><br>
+        <div class="project">
+            <img src="customer.jpg" alt="Customer Billing Services Project">
+            <h3>C Language Project</h3><Br>
+            <p><strong>Description of Customer Billing Services Project:</strong><br> Customer Billing System Project is a basic console application created to show the actual use of the C programming language and its capabilities as well as to develop an application that can be used to charge customers in any department store, shop, café, etc.<br><br>
+<strong>Methods and Functions used:</strong><br>
+User-Defined Functions (UDFs) play a crucial role in the Customer Billing System project, enhancing its functionality and organization. These functions streamline various tasks within the application. The first function, void input(), serves as the entry point for creating new customer accounts. It prompts users to provide essential information like name, address, phone number, and payment amount. The void writefile() function is responsible for persisting this customer data by creating a dedicated file on the computer's hard disk.<br>
+
+The void search() function is another valuable UDF, facilitating the retrieval of previously stored accounts. Users can query the system using either the customer's name or number, making it easy to access customer information. The final UDF, void output(), is employed to display the results directly on the console, ensuring users can view the requested information efficiently.<br><br>
+<strong>Functionality of the Project:</strong><br>
+The project employs effective data structures to neatly organize related data elements, such as dates and customer details, enhancing data management and user-friendliness. Users can effortlessly interact with the system through a simple menu, making it intuitive and efficient. This combination of structured data and user-friendly design ensures the Customer Billing System's overall effectiveness and user satisfaction.
+</p>
+        </div>
+     <div class="project">
+            <img src="calculator.jpg" alt="Calculator Project">
+            <h3>Java Project</h3><br>
+            <p><strong> Description of Calculator Project:</strong><br><br>Designing the GUI: The first step is to design the graphical user interface (GUI) for the calculator application. This involves creating the main frame, buttons for
+numbers and operations, and a text field to display input and output. The layout
+and aesthetics of the GUI are carefully considered to provide a clean and organized
+interface.<br><br>Implementing Action Listeners: Action listeners are essential for handling user
+interactions with the calculator buttons. Each button, including numbers,
+operations, and the clear button, will have an associated action listener. When a
+button is clicked, the corresponding action listener will capture the input and
+update the display accordingly.
+<br><br>Handling Numerical Inputs: The code implementation involves handling numerical
+inputs from the number buttons and the decimal point button. When a number
+button is clicked, the corresponding digit is appended to the existing input in the
+text field. The decimal point button allows users to input decimal numbers for
+precise calculations.<br><br>Arithmetic Operations: The calculator application supports four basic arithmetic
+operations: addition, subtraction, multiplication, and division. The code will
+implement switch-case statements to determine the selected operation and
+perform the corresponding calculation when the equals button is clicked.<br><br>Real-Time Feedback: To provide real-time feedback, the code implementation
+ensures that the user's input and the calculated result are displayed in the text field
+as they enter numbers and perform operations. This feedback helps users to track
+their input and monitor the ongoing calculation.</p></div>
+        </div>
+    </section>
+
+    <footer>
+<div style="margin:40px;">
+        <p>&copy; 2023 Shreya Bose</p>
+ </div>
+    </footer>
+</body>
+</html>
+
