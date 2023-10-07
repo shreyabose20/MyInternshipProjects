@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .checkout-summary {
+            width: 400px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: left;
+            overflow: auto; /* Enable scrolling */
+            max-height: 400px; /* Set a maximum height for the box */
+        }
+
+        .checkout-summary h2 {
+            margin-bottom: 10px;
+        }
+
+        .checkout-summary p {
+            margin-bottom: 10px;
+        }
+
+        .checkout-button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .checkout-button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+    </header>
+    <main>
+        <div class="checkout-summary">
+            <h2>Order Summary</h2>
+            <p>Product: Gucci Tote Bag</p><img src="bag.jpg" alt="Gucci bag">
+            <p>Price: $1019.99</p>
+            <p>Quantity: 1</p>
+<p>Product: Chanel Flap Bag</p><img src="bag22.jpg" alt="Chanel Flap Bag">
+            <p>Price: $624.99</p>
+            <p>Quantity: 1</p>
+            <p>Total: $1644.98</p>
+<p>Address: M.G. Road, Bangalore-560037</p>
+<p>Phone Number: 9593714020 </p>
+        </div>
+
+        <button class="checkout-button">Complete Purchase</button>
+    </main>
+</body>
+</html>

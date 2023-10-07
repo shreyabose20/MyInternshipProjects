@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+        }
+
+        .product img {
+            max-width: 300px;
+            margin-right: 20px;
+        }
+
+        .product-details {
+            text-align: left;
+        }
+
+        .cart {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        #cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+
+        .remove-from-cart {
+            background-color: red;
+        }
+
+        .remove-from-cart:hover {
+            background-color: darkred;
+        }
+
+        script {
+            defer: true;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Designer Bags Store</h1>
+    </header>
+    <main>
+        <section class="product">
+            <img src="bag.jpg" alt="Gucci bag">
+            <div class="product-details">
+                <h2>Gucci Tote Bag</h2>
+                <p><strong>Description:</strong> <br>Material: Gucci tote bags are typically crafted from premium materials such as leather, canvas, or a combination of both. The choice of material may vary depending on the specific design and collection.<br>Design: Gucci tote bags come in a variety of designs, but they often feature the brand's signature motifs and logos. <br>Size: Gucci tote bags come in various sizes, from small and compact to large and spacious. They are versatile and suitable for a wide range of occasions, from daily use to travel.<br></p>
+                <p>Price: $1019.99</p>
+                <button class="add-to-cart" data-name="Gucci Tote Bag" data-price="1019.99">Add to Cart</button>
+            </div>
+        </section>
+<br>
+        <section class="product">
+            <img src="bag22.jpg" alt="Chanel Flap Bag">
+            <div class="product-details">
+                <h2>Chanel Flap Bag</h2>
+                <p><strong>Description:</strong> <br>Material: Chanel handbags are crafted from a variety of high-quality materials, with lambskin and caviar leather being among the most popular choices.<br>Design: Chanel handbags are characterized by their elegant and understated design, featuring clean lines and minimalistic aesthetics. <br>Size and Styles: Chanel offers a wide range of handbag styles and sizes to suit various occasions and preferences. <br></p>
+                <p>Price: $624.99</p>
+                <button class="add-to-cart" data-name="Chanel Flap Bag" data-price="624.99">Add to Cart</button>
+            </div>
+        </section>
+        
+       
+    </main>
+    <aside class="cart">
+        <h2>Shopping Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <p>Total: $<span id="cart-total">0.00</span></p>
+        <button id="view-cart">View Cart</button>
+    </aside>
+    <script>
+        // Variables to keep track of the cart and total
+        let cart = [];
+        let total = 0;
+
+        // Function to create the HTML for cart items
+        function createCartItemHTML(item) {
+            const li = document.createElement('li');
+            li.innerHTML = `${item.name} (Quantity: ${item.quantity}): $${(item.price * item.quantity).toFixed(2)}`;
+            
+            // Add a "Remove from Cart" button for each item
+            const removeButton = document.createElement('button');
+            removeButton.textContent = 'Remove from Cart';
+            removeButton.className = 'remove-from-cart';
+            removeButton.setAttribute('data-name', item.name);
+            removeButton.setAttribute('data-price', item.price);
+            
+            // Add an event listener to the "Remove from Cart" button
+            removeButton.addEventListener('click', function () {
+                removeFromCart(item.name, item.price);
+            });
+            
+            li.appendChild(removeButton);
+            return li;
+        }
+
+        // Function to add an item to the cart
+        function addToCart(productName, productPrice) {
+            const existingItem = cart.find(item => item.name === productName);
+
+            if (existingItem) {
+                existingItem.quantity++;
+            } else {
+                cart.push({ name: productName, price: productPrice, quantity: 1 });
+            }
+
+            total += productPrice;
+            updateCart();
+            saveCartToLocalStorage(); // Save the cart data to localStorage
+        }
+
+        // Function to remove an item from the cart
+        function removeFromCart(productName, productPrice) {
+            const existingItem = cart.find(item => item.name === productName);
+
+            if (existingItem) {
+                if (existingItem.quantity === 1) {
+                    cart = cart.filter(item => item.name !== productName);
+                } else {
+                    existingItem.quantity--;
+                }
+                total -= productPrice;
+            }
+
+            updateCart();
+            saveCartToLocalStorage(); // Save the cart data to localStorage
+        }
+
+        // Function to update the cart display
+        function updateCart() {
+            const cartList = document.getElementById('cart-items');
+            cartList.innerHTML = '';
+            cart.forEach(item => {
+                const cartItemHTML = createCartItemHTML(item);
+                cartList.appendChild(cartItemHTML);
+            });
+            document.getElementById('cart-total').textContent = total.toFixed(2);
+        }
+
+        // Event listeners for adding products to the cart
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productName = this.getAttribute('data-name');
+                const productPrice = parseFloat(this.getAttribute('data-price'));
+                addToCart(productName, productPrice);
+            });
+        });
+
+        // Event listener for removing products from the cart
+        const removeFromCartButtons = document.querySelectorAll('.remove-from-cart');
+        removeFromCartButtons.forEach(button => {
+            button.addEventListener('click', function () {
+                const productName = this.getAttribute('data-name');
+                const productPrice = parseFloat(this.getAttribute('data-price'));
+                removeFromCart(productName, productPrice);
+            });
+        });
+
+        // Functionality to view the cart
+        document.getElementById('view-cart').addEventListener('click', function () {
+            // Display cart contents in a modal (you can customize this)
+            const cartContents = cart.map(item => `${item.name} (Quantity: ${item.quantity}): $${(item.price * item.quantity).toFixed(2)}`);
+            if (cartContents.length > 0) {
+                alert('Cart Contents:\n\n' + cartContents.join('\n'));
+            } else {
+                alert('Your cart is empty.');
+            }
+        });
+
+        // Function to save the cart data to localStorage
+        function saveCartToLocalStorage() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            localStorage.setItem('total', total.toFixed(2));
+        }
+
+        // Function to load cart data from localStorage
+        function loadCartFromLocalStorage() {
+            const savedCart = localStorage.getItem('cart');
+            const savedTotal = localStorage.getItem('total');
+
+            if (savedCart) {
+                cart = JSON.parse(savedCart);
+                total = parseFloat(savedTotal);
+                updateCart();
+            }
+        }
+
+        // Load cart data when the page loads
+        window.addEventListener('load', loadCartFromLocalStorage);
+
+    </script>
+    <br> <br> 
+    <button id="go-to-billing" onclick="location.href='billing.html'">Proceed to Billing</button>
+</body>
+</html>
